@@ -1,0 +1,20 @@
+<template>
+    <template lwc:if={hasSelectedRecord}>
+        <lightning-card title={title} icon-name={iconName}>
+            <lightning-button-icon icon-name="utility:new_window" slot="actions" alternative-text="New Window" title="New Window"></lightning-button-icon>
+            <div class="slds-m-around_medium">
+                <div class="selected-record-form">
+                    <lightning-record-form lwc:if={showRecordForm} object-api-name={objectApiName} record-id={recordId} layout-type="Full" mode="view" columns="2">
+                    </lightning-record-form>
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+    <template lwc:else>
+        <lightning-card title={title}>
+            <div class="slds-m-around_medium">
+                <p>Selected a related list record to see it here.</p>
+            </div>
+        </lightning-card>
+    </template>
+</template>

@@ -1,0 +1,9 @@
+<template>
+    <template if:true={relatedLists}>
+        <template for:each={relatedLists} for:item="relatedList">
+            <div key={relatedList.label}>
+                <c-related-list object-api-name={objectApiName} related-list-id={relatedList.label} record-id={recordId}></c-related-list>
+            </div>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,7 @@
+.record {
+    cursor: pointer;
+}
+
+.selected-record {
+    background-color: lightblue;
+}

@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-p-bottom_x-small">
+        <lightning-card title={relatedListId} icon-name={iconName}>
+            <div class="slds-m-around_medium">
+                <template if:true={relatedListColumns}>
+                    <table class="slds-table slds-table_bordered slds-table_fixed-layout slds-no-row-hover">
+                        <thead>
+                            <tr>
+                                <template for:each={relatedListColumns} for:item="column">
+                                    <th key={column.fieldApiName} class="slds-cell-wrap" title={column.label}>
+                                        {column.label}
+                                    </th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <template if:true={relatedListRecords}>
+                            <template for:each={relatedListRecords} for:item="record">
+                                <tr key={record.id} onclick={recordSelectedHandler} class="record" data-id={record.id}>
+                                    <template for:each={record.fields} for:item="field">
+                                        <td key={field.id} class="slds-truncate" title={field.value}>
+                                            {field.value}
+                                        </td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </template>
+                    </table>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
